@@ -68,9 +68,7 @@ button:hover{
 .lstyle li{
     margin-top: -5px;
 }
-.lstyle button{
-    background-color: blueviolet;
-}
+
 
 .lstyle button:hover{
     background-color: red;

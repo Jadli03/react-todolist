@@ -1,5 +1,5 @@
 import React from 'react';
-
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 const List = (props) =>{
   
 
@@ -8,7 +8,7 @@ const List = (props) =>{
         <div className="lstyle">
         <button onClick={()=>{
             props.onSelect(props.id);
-        }}> - </button>
+        }}> <RemoveCircleIcon /> </button>
         <li>{props.data}</li>
         </div>
          </>

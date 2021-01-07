@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import List from './List';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+
 
 const App = () =>{
 
@@ -40,7 +42,7 @@ const App = () =>{
            value={list}
            onChange={itemname}
            />
-          <button onClick={add}> + </button>
+          <button onClick={add}> <AddCircleIcon /> </button>
           <ol>
             {/* <li>{list}</li> */}
             {item.map((val,i)=>{
