@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import List from './list';
+import List from './List';
 
 const App = () =>{
 
@@ -12,7 +12,7 @@ const App = () =>{
     }
 
     const add = () =>{
-      if(list != "")
+      if(list !== "")
       {
         setl((old)=>{
           return [...old, list]
