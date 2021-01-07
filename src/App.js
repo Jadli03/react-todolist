@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import List from './list';
 
-function App() {
+const App = () =>{
+
+  const [list,seti] = useState("");
+  const [item,setl] = useState([]);
+
+    const itemname = (event) =>{
+      let value = event.target.value;
+        seti(value);
+    }
+
+    const add = () =>{
+      if(list != "")
+      {
+        setl((old)=>{
+          return [...old, list]
+      });
+      seti("");
+      } 
+    }
+    const del = (id) => {
+         setl((old) =>{
+          return old.filter((arr,i) =>{
+              return i!==id;
+          }
+          )
+         })
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="main">
+        <div className="container">
+            <h1>Todo List</h1>
+            <br />
+           <input 
+           type="text" 
+           placeholder="Add Item"
+           value={list}
+           onChange={itemname}
+           />
+          <button onClick={add}> + </button>
+          <ol>
+            {/* <li>{list}</li> */}
+            {item.map((val,i)=>{
+              return <List key={i} id={i} data={val} onSelect={del}/>
+            })}
+          </ol>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default App;
